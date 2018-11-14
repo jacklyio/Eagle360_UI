@@ -17,6 +17,8 @@ public:
     TcpClient      *mTcpclient;
     void udp_broadcast(const QByteArray );
     void udp_getinfo();
+    void send_databytes(const QByteArray );
+    void receive_databytes(QByteArray *);
 private:
     bool find_host_num(unsigned int *);
     void find_host_list(QString *);

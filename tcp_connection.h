@@ -1,9 +1,10 @@
 //2018 Jack
 #ifndef TCP_CLIENT_H
 #define TCP_CLIENT_H
-#include <QWidget>
-#include <QtNetwork>
-#include "ui_parameter.h"
+#include    <QWidget>
+#include    <QtNetwork>
+#include    "ui_parameter.h"
+#include    <QtCore>
 
 class TcpClient:public QWidget
 {
@@ -12,8 +13,8 @@ public:
     TcpClient();
     virtual ~TcpClient();
     void    tcp_startlisten();
-    inline qint64  get_trans_totalbyte();
-    inline qint64  get_trans_receivedbyte();
+    bool write(const QByteArray );
+    bool read(QByteArray *);
 private:
     QTcpServer *mTcpServer;
     QTcpSocket *mTcpSocket;
@@ -28,6 +29,6 @@ private slots:
     void    download_progress();
     void    display_error(QAbstractSocket::SocketError );
 signals:
-     void valueChanged(int);
+     void valueChanged(int,int);
 };
 #endif // TCP_CLIENT_H

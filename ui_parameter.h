@@ -1,10 +1,14 @@
 //2018 Jack
 #ifndef UI_PARAMETER_H
 #define UI_PARAMETER_H
+#include <QtCore>
 #define PORT 9487
 #define CORETRONIC_MEG "CORETRONIC_EAGLE360"
-
-static bool mUdp_Check(false);
+#define BOTTON1 "BOTTON_1"
+#define BOTTON2 "BOTTON_2"
+#define BOTTON3 "BOTTON_3"
+#define BOTTON4 "BOTTON_4"
+#define BOTTON5 "BOTTON_5"
 
 typedef enum Action{
     CORETRONIC_CONNECT      = 0,

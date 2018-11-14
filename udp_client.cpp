@@ -11,8 +11,6 @@ UdpClient::UdpClient():mIP_host_num(0){
 
 UdpClient::~UdpClient(){
     disconnect(this->uSocket, SIGNAL(readyRead()), this, SLOT(process_pending_datagram()));
-    //uSocket->abort();
-    //uSocket->close();
     delete [] mHostAddressList;
     delete uSocket;
 }
@@ -75,4 +73,16 @@ void UdpClient::udp_getinfo(){
         qDebug()<<"Could not get network link";
         exit(0);
     }
+}
+void UdpClient::send_databytes(const QByteArray datagram){
+
+    if(this->mTcpclient->write(datagram)){
+        qDebug()<<"Success Send!";
+    }
+    else
+        qDebug()<<"Fail Send!";
+
+}
+void UdpClient::receive_databytes(QByteArray *datagram){
+    this->mTcpclient->read(datagram);
 }
